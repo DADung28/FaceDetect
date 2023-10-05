@@ -1,0 +1,7 @@
+Guitar
+Piano
+Microphone
+Drum
+Trumpet
+Saxophone
+Musical instrument

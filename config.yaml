@@ -1,0 +1,12 @@
+path: /Users/jun/Desktop/yolov8_test/Dataset
+train: images/train
+val: images/train
+
+names: 
+    0: Guitar
+    1: Piano
+    2: Microphone
+    3: Drum
+    4: Trumpet
+    5: Saxophone
+    6: Musical instrument
