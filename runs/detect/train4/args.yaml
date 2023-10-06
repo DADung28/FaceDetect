@@ -2,10 +2,10 @@ task: detect
 mode: train
 model: yolov8n.yaml
 data: config.yaml
-epochs: 10
+epochs: 100
 patience: 50
 batch: 16
-imgsz: 640
+imgsz: 1200
 save: true
 save_period: -1
 cache: false
@@ -95,4 +95,4 @@ mixup: 0.0
 copy_paste: 0.0
 cfg: null
 tracker: botsort.yaml
-save_dir: runs/detect/train4
+save_dir: /.pyenv/runs/detect/train4
