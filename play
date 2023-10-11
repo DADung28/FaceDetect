@@ -9,16 +9,27 @@ import uuid
 import os
 import time
 import math
+import argparse
 proxy = 'http://10.0.0.107:3128'
 os.environ['http_proxy'] = proxy 
 os.environ['HTTP_PROXY'] = proxy
 os.environ['https_proxy'] = proxy
 os.environ['HTTPS_PROXY'] = proxy
+#----------------PARSE PARAMETER-----------------
+parser = argparse.ArgumentParser(description='This program will take input file as CICFLowMeter flow information (csv file) and output trained model in [trained_model] training plot data [csv_plot]')
+# parser.add_argument: Add parameter to program
+WORK_PATH = os.getcwd()
+parser.add_argument('--model', help='Detect pretrained model', default='yolov8n.pt') # Required parameter
+parser.add_argument('--device', help='Camera or video', default='0') # Required parameter
+args = parser.parse_args()
 
+#----------------Define variable based of args----------de
+device = args.device
+model = args.model
 # Load a model
 #model = YOLO("yolov8n.yaml")  # build a new model from scratch
-model = YOLO("facedetect.pt")  # load a pretrained model (recommended for training)
-cap = cv2.VideoCapture('test.mp4')
+model = YOLO(model)  # load a pretrained model (recommended for training)
+cap = cv2.VideoCapture(int(device))
 if not cap.isOpened() :
     raise IOError("Cannot onen webcam")
 while True:
